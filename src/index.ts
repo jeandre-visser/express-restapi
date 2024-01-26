@@ -6,6 +6,9 @@ import compression from "compression";
 import cors from "cors";
 import mongoose from "mongoose";
 import router from "./router";
+import dotenv from "dotenv";
+dotenv.config();
+
 /**
  * Initializes the express application and sets up middleware, server, and database connection.
  */
@@ -50,8 +53,7 @@ server.listen(8080, () => {
 /**
  * MongoDB connection URL.
  */
-const MONGO_URL =
-  "mongodb+srv://jeandre:IFVBbGz6V1eKzb8N@cluster0.a3ah5vx.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/test";
 
 /**
  * Sets mongoose's Promise to global Promise.
